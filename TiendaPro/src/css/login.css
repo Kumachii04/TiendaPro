@@ -1,0 +1,565 @@
+/* ===== VARIABLES Y RESET ===== */
+:root {
+    --primary-gradient: linear-gradient(135deg, #66dfea 0%, #0eb82a 100%);
+    --secondary-gradient: linear-gradient(135deg, #dbd815 0%, #ddf557 100%);
+    --accent-color: #667eea;
+    --dark-color: #2d3748;
+    --light-color: #f7fafc;
+    --success-color: #48bb78;
+    --error-color: #f56565;
+    --warning-color: #ed8936;
+    --shadow-light: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 15px 35px rgba(0, 0, 0, 0.15);
+    --shadow-heavy: 0 25px 50px rgba(0, 0, 0, 0.2);
+    --border-radius: 16px;
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== ESTILOS GENERALES ===== */
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(-45deg, #d9dbda, #edeee8, #eceeef, #f4f9f8);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    line-height: 1.6;
+    color: var(--dark-color);
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.container.login {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--border-radius);
+    padding: 50px 40px;
+    box-shadow: var(--shadow-heavy);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    max-width: 480px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.container.login::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-gradient);
+    animation: borderGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes borderGlow {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.container.login:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== LOGO ===== */
+.logo {
+    display: block;
+    margin: 0 auto 30px;
+    max-width: 200px;
+    height: auto;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* ===== TÍTULOS Y TEXTOS ===== */
+.text-title {
+    color: var(--dark-color);
+    font-weight: 800;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 12px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.text-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--primary-gradient);
+    border-radius: 2px;
+}
+
+.text-center.text-muted {
+    color: #718096 !important;
+    font-size: 1rem;
+    margin-bottom: 35px !important;
+    font-weight: 400;
+}
+
+/* ===== FORMULARIO ===== */
+.LoginFormsDate {
+    margin-top: 20px;
+}
+
+.top-margin {
+    margin-bottom: 28px;
+    position: relative;
+}
+
+/* Labels con efecto flotante */
+label {
+    color: #4a5568;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+label i {
+    color: var(--accent-color);
+    width: 18px;
+    margin-right: 10px;
+    transition: var(--transition);
+}
+
+/* Campos de entrada mejorados */
+.form-control {
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: #fff;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+    transform: translateY(-3px);
+    background: #fafbff;
+}
+
+.form-control::placeholder {
+    color: #a0aec0;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.form-control:focus::placeholder {
+    opacity: 0.5;
+    transform: translateX(5px);
+}
+
+/* Efecto de icono flotante en campos */
+.input-container {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a0aec0;
+    transition: var(--transition);
+}
+
+.form-control:focus + .input-icon {
+    color: var(--accent-color);
+    transform: translateY(-50%) scale(1.2);
+}
+
+/* ===== CHECKBOX MEJORADO ===== */
+.form-check {
+    position: relative;
+    padding-left: 35px;
+}
+
+.form-check-input {
+    width: 22px;
+    height: 22px;
+    margin-top: 0;
+    margin-left: -35px;
+    border: 2px solid #cbd5e0;
+    border-radius: 6px;
+    position: relative;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background: var(--primary-gradient);
+    border-color: transparent;
+}
+
+.form-check-input:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.form-check-label {
+    color: #4a5568;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.form-check-label:hover {
+    color: var(--accent-color);
+}
+
+/* ===== ENLACES ===== */
+.text-decoration-none {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    position: relative;
+    display: inline-block;
+}
+
+.text-decoration-none::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: var(--transition);
+}
+
+.text-decoration-none:hover {
+    color: #5a67d8;
+    text-decoration: none !important;
+    transform: translateY(-2px);
+}
+
+.text-decoration-none:hover::after {
+    width: 100%;
+}
+
+/* ===== BOTÓN PRINCIPAL MEJORADO ===== */
+.btn-primary {
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 12px;
+    padding: 16px 32px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    width: 100%;
+    transition: var(--transition);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--secondary-gradient);
+    transition: var(--transition);
+    z-index: -1;
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+}
+
+.btn-primary:hover::before {
+    width: 100%;
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+}
+
+.btn-primary i {
+    transition: var(--transition);
+}
+
+.btn-primary:hover i {
+    transform: translateX(4px);
+}
+
+/* ===== TEXTO DE REGISTRO ===== */
+.text-center.mt-4 {
+    color: #718096;
+    font-size: 0.95rem;
+    margin-top: 35px !important;
+    position: relative;
+}
+
+.text-center.mt-4::before {
+    content: '';
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+}
+
+/* ===== MODAL MEJORADO ===== */
+.modal-content {
+    border-radius: 18px;
+    border: none;
+    box-shadow: var(--shadow-heavy);
+    overflow: hidden;
+}
+
+.modal-header {
+    background: var(--primary-gradient);
+    color: white;
+    border-radius: 18px 18px 0 0;
+    border-bottom: none;
+    padding: 25px 30px;
+    position: relative;
+}
+
+.modal-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.modal-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.modal-body {
+    padding: 30px;
+    background: #f8fafc;
+}
+
+.modal-footer {
+    border-top: 1px solid #e2e8f0;
+    padding: 20px 30px;
+    border-radius: 0 0 18px 18px;
+    background: #fff;
+}
+
+/* Alertas mejoradas */
+.alert {
+    border: none;
+    border-radius: 12px;
+    padding: 18px 20px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.alert i {
+    margin-right: 12px;
+    font-size: 1.2rem;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+    color: #c53030;
+    border-left: 4px solid var(--error-color);
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
+    color: #276749;
+    border-left: 4px solid var(--success-color);
+}
+
+/* Botones del modal */
+.btn-secondary {
+    background: #718096;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 24px;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(113, 128, 150, 0.3);
+}
+
+.btn-secondary:hover {
+    background: #4a5568;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(113, 128, 150, 0.4);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 576px) {
+    .container.login {
+        padding: 35px 25px;
+        margin: 10px;
+    }
+    
+    .text-title {
+        font-size: 1.8rem;
+    }
+    
+    .logo {
+        max-width: 160px;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+}
+
+/* ===== ANIMACIONES ADICIONALES ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container.login {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Efectos de carga para el botón */
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Mejora para los iconos */
+.fas, .fab {
+    font-size: 0.95em;
+}
+
+/* Personalización del scroll */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-gradient);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a67d8, #6b46c1);
+}
+
+/* Efecto de partículas en el fondo (opcional) */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: float 15s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}

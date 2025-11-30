@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer N.A.E.I Market</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/src/css/footer.css">
+</head>
+<body>
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Sección Principal -->
+            <div class="footer-main">
+                <!-- Columna de Marca -->
+                <div class="footer-column footer-brand">
+                    <h3 class="brand-name">NAE Store</h3>
+                    <p class="brand-tagline">Tu tienda de confianza</p>
+                    
+                   <img src="/assets/img/logo/nae.png" alt="Logo N.A.E.I Market" class="logo">
+
+                    <div class="social-icons">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Categorías -->
+                <div class="footer-column">
+                    <h5 class="column-title">Categorías</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Accesorios Tech</a></li>
+                        <li><a href="#">Componentes PC</a></li>
+                        <li><a href="#">Laptops & PCs</a></li>
+                        <li><a href="#">Monitores</a></li>
+                        <li><a href="#">Gaming</a></li>
+                        <li><a href="#">Periféricos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Mi Cuenta -->
+                <div class="footer-column">
+                    <h5 class="column-title">Mi Cuenta</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Iniciar Sesión</a></li>
+                        <li><a href="#">Mi Perfil</a></li>
+                        <li><a href="#">Mis Pedidos</a></li>
+                        <li><a href="#">Seguimiento</a></li>
+                        <li><a href="#">Lista de Deseos</a></li>
+                        <li><a href="#">Carrito</a></li>
+                    </ul>
+                </div>
+
+                <!-- Información -->
+                <div class="footer-column">
+                    <h5 class="column-title">Información</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Términos de Uso</a></li>
+                        <li><a href="#">Privacidad</a></li>
+                        <li><a href="#">Preguntas FAQ</a></li>
+                        <li><a href="#">Garantías</a></li>
+                        <li><a href="#">Contáctanos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div class="footer-column">
+                    <h5 class="column-title">Contacto</h5>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:50765515025">(507) 6551-5025</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:5073837799">(507) 383-7799</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:NAEImarket@gmail.com">NAEImarket@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Lun - Sáb: 9AM - 6PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>© 2024 N.A.E Store - Todos los Derechos Reservados</p>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                </div>
+                <div class="footer-bottom-right">
+                    <div class="footer-badges">
+                        <div class="badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Compra Segura</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-truck"></i>
+                            <span>Envío Rápido</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón flotante de WhatsApp -->
+        <a href="https://wa.me/50765515025" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <!-- Scroll to top -->
+        <button class="scroll-top" aria-label="Volver arriba">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </footer>
+
+    <script>
+        // Scroll to top functionality
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const input = e.target.querySelector('input');
+            alert('¡Gracias por suscribirte! Pronto recibirás nuestras ofertas exclusivas.');
+            input.value = '';
+        });
+    </script>
+</body>
+</html>
